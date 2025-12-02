@@ -7,18 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91983ED82EDE7EEB008B2073 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91983ED52EDE7EEB008B2073 /* Poppins-Medium.ttf */; };
+		91983ED92EDE7EEB008B2073 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91983ED42EDE7EEB008B2073 /* Poppins-Bold.ttf */; };
+		91983EDA2EDE7EEB008B2073 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91983ED72EDE7EEB008B2073 /* Poppins-SemiBold.ttf */; };
+		91983EDB2EDE7EEB008B2073 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91983ED62EDE7EEB008B2073 /* Poppins-Regular.ttf */; };
+		91983EE02EDE7F2B008B2073 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91983EDD2EDE7F2B008B2073 /* Roboto-Medium.ttf */; };
+		91983EE12EDE7F2B008B2073 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91983EDE2EDE7F2B008B2073 /* Roboto-Regular.ttf */; };
+		91983EE22EDE7F2B008B2073 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91983EDC2EDE7F2B008B2073 /* Roboto-Bold.ttf */; };
+		91983EE32EDE7F2B008B2073 /* Roboto-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91983EDF2EDE7F2B008B2073 /* Roboto-SemiBold.ttf */; };
+		91983EE52EDE7F67008B2073 /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91983EE42EDE7F67008B2073 /* RobotoMono-Regular.ttf */; };
+		91983EEE2EDE81DE008B2073 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91983EED2EDE81DE008B2073 /* AppFonts.swift */; };
+		91983EF02EDE8281008B2073 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91983EEF2EDE8281008B2073 /* AppColors.swift */; };
+		91983EF82EDE8527008B2073 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 91983EF72EDE851A008B2073 /* swiftgen.yml */; };
+		91983EFF2EDE89AD008B2073 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91983EFC2EDE89AD008B2073 /* Assets.swift */; };
+		91983F002EDE89AD008B2073 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91983EFD2EDE89AD008B2073 /* Fonts.swift */; };
 		91EA585E2EDD9787004F0C37 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA585B2EDD9787004F0C37 /* ContentView.swift */; };
 		91EA585F2EDD9787004F0C37 /* DeliveryAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA585C2EDD9787004F0C37 /* DeliveryAppApp.swift */; };
 		91EA58602EDD9787004F0C37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EA585A2EDD9787004F0C37 /* Assets.xcassets */; };
 		91EA586E2EDD9A72004F0C37 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EA586D2EDD9A72004F0C37 /* Colors.xcassets */; };
+		A3D08068275FAE5851DC3EDE /* Pods_DeliveryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC2745BE03BDADB8656B71E /* Pods_DeliveryApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2CAFD10E95700AC232EB35BB /* Pods-DeliveryApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryApp.debug.xcconfig"; path = "Target Support Files/Pods-DeliveryApp/Pods-DeliveryApp.debug.xcconfig"; sourceTree = "<group>"; };
+		391EFB943120B54F0A282FBF /* Pods-DeliveryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryApp.release.xcconfig"; path = "Target Support Files/Pods-DeliveryApp/Pods-DeliveryApp.release.xcconfig"; sourceTree = "<group>"; };
+		91983ED42EDE7EEB008B2073 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		91983ED52EDE7EEB008B2073 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		91983ED62EDE7EEB008B2073 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		91983ED72EDE7EEB008B2073 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		91983EDC2EDE7F2B008B2073 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		91983EDD2EDE7F2B008B2073 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		91983EDE2EDE7F2B008B2073 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		91983EDF2EDE7F2B008B2073 /* Roboto-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-SemiBold.ttf"; sourceTree = "<group>"; };
+		91983EE42EDE7F67008B2073 /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
+		91983EE62EDE7FB8008B2073 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		91983EED2EDE81DE008B2073 /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		91983EEF2EDE8281008B2073 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		91983EF72EDE851A008B2073 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		91983EFC2EDE89AD008B2073 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		91983EFD2EDE89AD008B2073 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		91EA584C2EDD9653004F0C37 /* DeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EA585A2EDD9787004F0C37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91EA585B2EDD9787004F0C37 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		91EA585C2EDD9787004F0C37 /* DeliveryAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAppApp.swift; sourceTree = "<group>"; };
 		91EA586D2EDD9A72004F0C37 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		EFC2745BE03BDADB8656B71E /* Pods_DeliveryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +59,61 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3D08068275FAE5851DC3EDE /* Pods_DeliveryApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53A9C7E2005AA214567F0118 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2CAFD10E95700AC232EB35BB /* Pods-DeliveryApp.debug.xcconfig */,
+				391EFB943120B54F0A282FBF /* Pods-DeliveryApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		91983E362EDE7E96008B2073 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				91983ED42EDE7EEB008B2073 /* Poppins-Bold.ttf */,
+				91983ED52EDE7EEB008B2073 /* Poppins-Medium.ttf */,
+				91983EDC2EDE7F2B008B2073 /* Roboto-Bold.ttf */,
+				91983EDD2EDE7F2B008B2073 /* Roboto-Medium.ttf */,
+				91983EDE2EDE7F2B008B2073 /* Roboto-Regular.ttf */,
+				91983EDF2EDE7F2B008B2073 /* Roboto-SemiBold.ttf */,
+				91983EE42EDE7F67008B2073 /* RobotoMono-Regular.ttf */,
+				91983ED62EDE7EEB008B2073 /* Poppins-Regular.ttf */,
+				91983ED72EDE7EEB008B2073 /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		91983EFB2EDE8987008B2073 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		91983EFE2EDE89AD008B2073 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				91983EFC2EDE89AD008B2073 /* Assets.swift */,
+				91983EFD2EDE89AD008B2073 /* Fonts.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		91EA58432EDD9653004F0C37 = {
 			isa = PBXGroup;
 			children = (
 				91EA585D2EDD9787004F0C37 /* DeliveryApp */,
 				91EA584D2EDD9653004F0C37 /* Products */,
+				53A9C7E2005AA214567F0118 /* Pods */,
+				A118B2F28C784026370508D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +128,7 @@
 		91EA585D2EDD9787004F0C37 /* DeliveryApp */ = {
 			isa = PBXGroup;
 			children = (
+				91983EE62EDE7FB8008B2073 /* Info.plist */,
 				91EA586C2EDD9871004F0C37 /* Resources */,
 				91EA586B2EDD986D004F0C37 /* Data */,
 				91EA586A2EDD985E004F0C37 /* Services */,
@@ -90,6 +168,8 @@
 		91EA58642EDD97C2004F0C37 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				91983EED2EDE81DE008B2073 /* AppFonts.swift */,
+				91983EEF2EDE8281008B2073 /* AppColors.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -149,10 +229,22 @@
 		91EA586C2EDD9871004F0C37 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				91983EFB2EDE8987008B2073 /* New Group */,
+				91983E362EDE7E96008B2073 /* Fonts */,
+				91983EF72EDE851A008B2073 /* swiftgen.yml */,
 				91EA585A2EDD9787004F0C37 /* Assets.xcassets */,
 				91EA586D2EDD9A72004F0C37 /* Colors.xcassets */,
+				91983EFE2EDE89AD008B2073 /* Generated */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A118B2F28C784026370508D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFC2745BE03BDADB8656B71E /* Pods_DeliveryApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,17 +254,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91EA58572EDD9655004F0C37 /* Build configuration list for PBXNativeTarget "DeliveryApp" */;
 			buildPhases = (
+				DAC26E301E9812D9CD0B0778 /* [CP] Check Pods Manifest.lock */,
 				91EA58482EDD9653004F0C37 /* Sources */,
 				91EA58492EDD9653004F0C37 /* Frameworks */,
 				91EA584A2EDD9653004F0C37 /* Resources */,
+				91983EFA2EDE8785008B2073 /* Swift gen */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DeliveryApp;
-			packageProductDependencies = (
-			);
 			productName = DeliveryApp;
 			productReference = 91EA584C2EDD9653004F0C37 /* DeliveryApp.app */;
 			productType = "com.apple.product-type.application";
@@ -218,17 +310,74 @@
 			files = (
 				91EA58602EDD9787004F0C37 /* Assets.xcassets in Resources */,
 				91EA586E2EDD9A72004F0C37 /* Colors.xcassets in Resources */,
+				91983EE02EDE7F2B008B2073 /* Roboto-Medium.ttf in Resources */,
+				91983EE12EDE7F2B008B2073 /* Roboto-Regular.ttf in Resources */,
+				91983EE22EDE7F2B008B2073 /* Roboto-Bold.ttf in Resources */,
+				91983EE32EDE7F2B008B2073 /* Roboto-SemiBold.ttf in Resources */,
+				91983ED82EDE7EEB008B2073 /* Poppins-Medium.ttf in Resources */,
+				91983ED92EDE7EEB008B2073 /* Poppins-Bold.ttf in Resources */,
+				91983EDA2EDE7EEB008B2073 /* Poppins-SemiBold.ttf in Resources */,
+				91983EE52EDE7F67008B2073 /* RobotoMono-Regular.ttf in Resources */,
+				91983EDB2EDE7EEB008B2073 /* Poppins-Regular.ttf in Resources */,
+				91983EF82EDE8527008B2073 /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		91983EFA2EDE8785008B2073 /* Swift gen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift gen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftGen/bin/swiftgen\" config run --config \"DeliveryApp/Resources/swiftgen.yml\"\n";
+		};
+		DAC26E301E9812D9CD0B0778 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DeliveryApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		91EA58482EDD9653004F0C37 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91983EEE2EDE81DE008B2073 /* AppFonts.swift in Sources */,
+				91983EF02EDE8281008B2073 /* AppColors.swift in Sources */,
 				91EA585E2EDD9787004F0C37 /* ContentView.swift in Sources */,
+				91983EFF2EDE89AD008B2073 /* Assets.swift in Sources */,
+				91983F002EDE89AD008B2073 /* Fonts.swift in Sources */,
 				91EA585F2EDD9787004F0C37 /* DeliveryAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,7 +422,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -336,7 +485,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -357,13 +506,16 @@
 		};
 		91EA58582EDD9655004F0C37 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CAFD10E95700AC232EB35BB /* Pods-DeliveryApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BCB2BS45Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DeliveryApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -385,13 +537,16 @@
 		};
 		91EA58592EDD9655004F0C37 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 391EFB943120B54F0A282FBF /* Pods-DeliveryApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2BCB2BS45Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DeliveryApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
