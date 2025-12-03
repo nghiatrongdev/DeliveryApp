@@ -6,224 +6,99 @@
 //
 
 import SwiftUI
-
-struct AppColors {
+extension Color {
+    struct Background{
+        static let primary = Asset.Colors.light
+        static let secondary = Asset.Colors.primary100
+        static let danger = Asset.Colors.red
+        static let light_red = Color(hex: "FEF5F3")
+        static let grey = Asset.Colors.grey500
+        static let disabled = Asset.Colors.grey200
+        static let surface_background = Asset.Colors.grey0
+        static let element_background = Asset.Colors.grey0
+        static let layer_1_background = Asset.Colors.grey50
+        static let layer_2_background = Asset.Colors.grey100
+        static let layer_3_background = Asset.Colors.grey200
+        static let background_blur = Color(hex: "9FA19E",alpha: 0.8)
+        static let transparent_nav = Asset.Colors.grey0
+        static let dark_mode_darkest = Asset.Colors.black
+    }
     
-    // MARK: - Primary Colors
-    /// Main brand color - Orange
-    static let primary = Color("Primary")
-    static let primaryDark = Color("PrimaryDark")
-    static let primaryLight = Color("PrimaryLight")
+    struct Typography {
+        static let heading = Asset.Colors.typography500
+        static let paragraph = Asset.Colors.typography400
+        static let light_grey = Asset.Colors.typography300
+        static let inactive = Asset.Colors.typography200
+        static let disable = Asset.Colors.typography100
+        static let primary = Asset.Colors.primary600
+        static let primary700 = Asset.Colors.primary700
+        static let white = Asset.Colors.white
+        static let danger = Asset.Colors.red
+    }
     
-    // MARK: - Secondary Colors
-    static let secondary = Color("Secondary")
-    static let accent = Color("Accent")
+    struct Icon{
+        static let defaultColor = Asset.Colors.grey500
+        static let light = Asset.Colors.grey400
+        static let disabled = Asset.Colors.grey400
+        static let primary = Asset.Colors.primary600
+        static let white = Asset.Colors.white
+    }
     
-    // MARK: - Background Colors
-    /// Main background - White (Light) / Dark (Dark Mode)
-    static let background = Color("Background")
-    /// Secondary background - Light Gray (Light) / Dark Gray (Dark Mode)
-    static let backgroundSecondary = Color("BackgroundSecondary")
-    /// Card background
-    static let cardBackground = Color("CardBackground")
+    struct Border {
+        static let defaultColor = Asset.Colors.grey200
+        static let light = Asset.Colors.grey100
+        static let primary = Asset.Colors.primary600
+        static let dark = Asset.Colors.grey500
+        static let link = Asset.Colors.blue
+        static let transparent_grey = Color(hex: "91958E", alpha: 0.06)
+        static let transparent_primary = Color(hex: "54A312", alpha: 0.24)
+    }
     
-    // MARK: - Text Colors
-    /// Primary text - Black (Light) / White (Dark Mode)
-    static let textPrimary = Color("TextPrimary")
-    /// Secondary text - Gray
-    static let textSecondary = Color("TextSecondary")
-    /// Tertiary text - Light Gray
-    static let textTertiary = Color("TextTertiary")
-    /// Text on primary color (always white)
-    static let textOnPrimary = Color.white
-    
-    // MARK: - Semantic Colors
-    static let success = Color("Success")
-    static let error = Color("Error")
-    static let warning = Color("Warning")
-    static let info = Color("Info")
-    
-    // MARK: - Border & Divider
-    static let border = Color("Border")
-    static let divider = Color("Divider")
-    
-    // MARK: - Special Colors
-    static let shadow = Color.black.opacity(0.1)
-    static let overlay = Color.black.opacity(0.4)
-    static let shimmer = Color.white.opacity(0.3)
-    
-    // MARK: - Rating Star
-    static let ratingStar = Color("RatingStar")
-    
-    // MARK: - Tab Bar
-    static let tabBarBackground = Color("TabBarBackground")
-    static let tabBarSelected = Color("Primary")
-    static let tabBarUnselected = Color("TextSecondary")
-}
-
-// MARK: - Hardcoded Colors (Fallback nếu chưa setup Assets)
-extension AppColors {
-    struct Fallback {
-        // Light Mode Colors
-        static let primaryLight = Color(hex: "#FF6B35")      // Orange
-        static let primaryDarkLight = Color(hex: "#E85A2A")  // Darker Orange
-        static let primaryLightLight = Color(hex: "#FF8C5F") // Lighter Orange
-        static let secondaryLight = Color(hex: "#FFC107")    // Yellow/Gold
-        static let accentLight = Color(hex: "#4CAF50")       // Green
-        
-        static let backgroundLight = Color.white
-        static let backgroundSecondaryLight = Color(hex: "#F5F5F5")
-        static let cardBackgroundLight = Color.white
-        
-        static let textPrimaryLight = Color(hex: "#212121")
-        static let textSecondaryLight = Color(hex: "#757575")
-        static let textTertiaryLight = Color(hex: "#BDBDBD")
-        
-        static let successLight = Color(hex: "#4CAF50")
-        static let errorLight = Color(hex: "#F44336")
-        static let warningLight = Color(hex: "#FF9800")
-        static let infoLight = Color(hex: "#2196F3")
-        
-        static let borderLight = Color(hex: "#E0E0E0")
-        static let dividerLight = Color(hex: "#EEEEEE")
-        
-        static let ratingStarLight = Color(hex: "#FFC107")
-        static let tabBarBackgroundLight = Color.white
-        
-        // Dark Mode Colors
-        static let primaryDark = Color(hex: "#FF6B35")       // Same orange
-        static let primaryDarkDark = Color(hex: "#E85A2A")
-        static let primaryLightDark = Color(hex: "#FF8C5F")
-        static let secondaryDark = Color(hex: "#FFD54F")     // Lighter Yellow
-        static let accentDark = Color(hex: "#66BB6A")        // Lighter Green
-        
-        static let backgroundDark = Color(hex: "#121212")
-        static let backgroundSecondaryDark = Color(hex: "#1E1E1E")
-        static let cardBackgroundDark = Color(hex: "#2C2C2C")
-        
-        static let textPrimaryDark = Color(hex: "#FFFFFF")
-        static let textSecondaryDark = Color(hex: "#B0B0B0")
-        static let textTertiaryDark = Color(hex: "#808080")
-        
-        static let successDark = Color(hex: "#66BB6A")
-        static let errorDark = Color(hex: "#EF5350")
-        static let warningDark = Color(hex: "#FFA726")
-        static let infoDark = Color(hex: "#42A5F5")
-        
-        static let borderDark = Color(hex: "#3C3C3C")
-        static let dividerDark = Color(hex: "#2C2C2C")
-        
-        static let ratingStarDark = Color(hex: "#FFD54F")
-        static let tabBarBackgroundDark = Color(hex: "#1E1E1E")
+    struct Illustration{
+        static let grey_lightest = Asset.Colors.grey100
+        static let grey = Asset.Colors.grey200
+        static let grey_dark = Asset.Colors.grey300
     }
 }
 
 // MARK: - Color Extension for Hex Support
 extension Color {
-    init(hex: String) {
+
+    init(hex: String, alpha: Double? = nil) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int: UInt64 = 0
         Scanner(string: hex).scanHexInt64(&int)
+        
         let a, r, g, b: UInt64
         switch hex.count {
         case 3: // RGB (12-bit)
-            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
-        case 6: // RGB (24-bit)
-            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
-        case 8: // ARGB (32-bit)
-            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+            (a, r, g, b) = (255,
+                            (int >> 8) * 17,
+                            (int >> 4 & 0xF) * 17,
+                            (int & 0xF) * 17)
+        case 6: // RRGGBB (24-bit)
+            (a, r, g, b) = (255,
+                            int >> 16 & 0xFF,
+                            int >> 8 & 0xFF,
+                            int & 0xFF)
+        case 8: // AARRGGBB (32-bit)
+            (a, r, g, b) = (int >> 24 & 0xFF,
+                            int >> 16 & 0xFF,
+                            int >> 8 & 0xFF,
+                            int & 0xFF)
         default:
-            (a, r, g, b) = (1, 1, 1, 0)
+            (a, r, g, b) = (255, 0, 0, 0)
         }
         
+        let alphaValue = alpha ?? Double(a) / 255
         self.init(
             .sRGB,
             red: Double(r) / 255,
             green: Double(g) / 255,
-            blue:  Double(b) / 255,
-            opacity: Double(a) / 255
+            blue: Double(b) / 255,
+            opacity: alphaValue
         )
     }
 }
 
-// MARK: - Preview
-#Preview {
-    ScrollView {
-        VStack(spacing: 24) {
-            // Primary Colors
-            ColorSection(title: "Primary Colors") {
-                ColorBox(color: AppColors.primary, name: "Primary")
-                ColorBox(color: AppColors.primaryDark, name: "Primary Dark")
-                ColorBox(color: AppColors.primaryLight, name: "Primary Light")
-            }
-            
-            // Background Colors
-            ColorSection(title: "Background Colors") {
-                ColorBox(color: AppColors.background, name: "Background")
-                ColorBox(color: AppColors.backgroundSecondary, name: "Background Secondary")
-                ColorBox(color: AppColors.cardBackground, name: "Card Background")
-            }
-            
-            // Text Colors
-            ColorSection(title: "Text Colors") {
-                ColorBox(color: AppColors.textPrimary, name: "Text Primary")
-                ColorBox(color: AppColors.textSecondary, name: "Text Secondary")
-                ColorBox(color: AppColors.textTertiary, name: "Text Tertiary")
-            }
-            
-            // Semantic Colors
-            ColorSection(title: "Semantic Colors") {
-                ColorBox(color: AppColors.success, name: "Success")
-                ColorBox(color: AppColors.error, name: "Error")
-                ColorBox(color: AppColors.warning, name: "Warning")
-                ColorBox(color: AppColors.info, name: "Info")
-            }
-        }
-        .padding()
-    }
-    .background(AppColors.background)
-}
 
-struct ColorSection<Content: View>: View {
-    let title: String
-    let content: Content
-    
-    init(title: String, @ViewBuilder content: () -> Content) {
-        self.title = title
-        self.content = content()
-    }
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text(title)
-                .font(.headline)
-                .foregroundColor(AppColors.textPrimary)
-            
-            HStack(spacing: 12) {
-                content
-            }
-        }
-    }
-}
-
-struct ColorBox: View {
-    let color: Color
-    let name: String
-    
-    var body: some View {
-        VStack(spacing: 8) {
-            RoundedRectangle(cornerRadius: 8)
-                .fill(color)
-                .frame(width: 80, height: 80)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(AppColors.border, lineWidth: 1)
-                )
-            
-            Text(name)
-                .font(.caption)
-                .foregroundColor(AppColors.textSecondary)
-                .multilineTextAlignment(.center)
-        }
-    }
-}

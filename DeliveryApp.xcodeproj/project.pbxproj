@@ -21,6 +21,9 @@
 		91983EF82EDE8527008B2073 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 91983EF72EDE851A008B2073 /* swiftgen.yml */; };
 		91983EFF2EDE89AD008B2073 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91983EFC2EDE89AD008B2073 /* Assets.swift */; };
 		91983F002EDE89AD008B2073 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91983EFD2EDE89AD008B2073 /* Fonts.swift */; };
+		91983F062EDE9DA9008B2073 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91983F052EDE9DA9008B2073 /* Buttons.swift */; };
+		91A41A722EDFE419008C48EA /* OnboardingIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A41A712EDFE419008C48EA /* OnboardingIntro.swift */; };
+		91A41A742EDFE4CC008C48EA /* OnboardingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A41A732EDFE4CC008C48EA /* OnboardingMain.swift */; };
 		91EA585E2EDD9787004F0C37 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA585B2EDD9787004F0C37 /* ContentView.swift */; };
 		91EA585F2EDD9787004F0C37 /* DeliveryAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA585C2EDD9787004F0C37 /* DeliveryAppApp.swift */; };
 		91EA58602EDD9787004F0C37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EA585A2EDD9787004F0C37 /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 		91983EF72EDE851A008B2073 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		91983EFC2EDE89AD008B2073 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		91983EFD2EDE89AD008B2073 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		91983F052EDE9DA9008B2073 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		91A41A712EDFE419008C48EA /* OnboardingIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntro.swift; sourceTree = "<group>"; };
+		91A41A732EDFE4CC008C48EA /* OnboardingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMain.swift; sourceTree = "<group>"; };
 		91EA584C2EDD9653004F0C37 /* DeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EA585A2EDD9787004F0C37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91EA585B2EDD9787004F0C37 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,13 +97,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		91983EFB2EDE8987008B2073 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		91983EFE2EDE89AD008B2073 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +104,15 @@
 				91983EFD2EDE89AD008B2073 /* Fonts.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		91A41A702EDFE404008C48EA /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				91A41A712EDFE419008C48EA /* OnboardingIntro.swift */,
+				91A41A732EDFE4CC008C48EA /* OnboardingMain.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		91EA58432EDD9653004F0C37 = {
@@ -187,6 +195,7 @@
 		91EA58662EDD97D1004F0C37 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				91983F052EDE9DA9008B2073 /* Buttons.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -208,6 +217,7 @@
 		91EA58692EDD9850004F0C37 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				91A41A702EDFE404008C48EA /* Onboarding */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -229,7 +239,6 @@
 		91EA586C2EDD9871004F0C37 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				91983EFB2EDE8987008B2073 /* New Group */,
 				91983E362EDE7E96008B2073 /* Fonts */,
 				91983EF72EDE851A008B2073 /* swiftgen.yml */,
 				91EA585A2EDD9787004F0C37 /* Assets.xcassets */,
@@ -373,12 +382,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91983F062EDE9DA9008B2073 /* Buttons.swift in Sources */,
 				91983EEE2EDE81DE008B2073 /* AppFonts.swift in Sources */,
 				91983EF02EDE8281008B2073 /* AppColors.swift in Sources */,
 				91EA585E2EDD9787004F0C37 /* ContentView.swift in Sources */,
 				91983EFF2EDE89AD008B2073 /* Assets.swift in Sources */,
+				91A41A742EDFE4CC008C48EA /* OnboardingMain.swift in Sources */,
 				91983F002EDE89AD008B2073 /* Fonts.swift in Sources */,
 				91EA585F2EDD9787004F0C37 /* DeliveryAppApp.swift in Sources */,
+				91A41A722EDFE419008C48EA /* OnboardingIntro.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
