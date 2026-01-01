@@ -29,6 +29,9 @@
 		91EA58602EDD9787004F0C37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EA585A2EDD9787004F0C37 /* Assets.xcassets */; };
 		91EA586E2EDD9A72004F0C37 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EA586D2EDD9A72004F0C37 /* Colors.xcassets */; };
 		A3D08068275FAE5851DC3EDE /* Pods_DeliveryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC2745BE03BDADB8656B71E /* Pods_DeliveryApp.framework */; };
+		DA815D022EFAE6E200DEAE70 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA815D012EFAE6E200DEAE70 /* OnboardingCoordinator.swift */; };
+		DA815D042EFAE84600DEAE70 /* BaseNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA815D032EFAE84600DEAE70 /* BaseNavigation.swift */; };
+		DA815D062EFAE87F00DEAE70 /* BaseNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA815D052EFAE87F00DEAE70 /* BaseNavigationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,9 @@
 		91EA585B2EDD9787004F0C37 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		91EA585C2EDD9787004F0C37 /* DeliveryAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAppApp.swift; sourceTree = "<group>"; };
 		91EA586D2EDD9A72004F0C37 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		DA815D012EFAE6E200DEAE70 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		DA815D032EFAE84600DEAE70 /* BaseNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigation.swift; sourceTree = "<group>"; };
+		DA815D052EFAE87F00DEAE70 /* BaseNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationView.swift; sourceTree = "<group>"; };
 		EFC2745BE03BDADB8656B71E /* Pods_DeliveryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -109,8 +115,8 @@
 		91A41A702EDFE404008C48EA /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				91A41A712EDFE419008C48EA /* OnboardingIntro.swift */,
-				91A41A732EDFE4CC008C48EA /* OnboardingMain.swift */,
+				DA815D002EFAE6A100DEAE70 /* View */,
+				DA815CFF2EFAE69600DEAE70 /* Navigation */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -153,6 +159,7 @@
 		91EA58612EDD9793004F0C37 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				DA815CFC2EFAE45C00DEAE70 /* Navigation */,
 				91EA585B2EDD9787004F0C37 /* ContentView.swift */,
 				91EA585C2EDD9787004F0C37 /* DeliveryAppApp.swift */,
 			);
@@ -254,6 +261,32 @@
 				EFC2745BE03BDADB8656B71E /* Pods_DeliveryApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA815CFC2EFAE45C00DEAE70 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				DA815D032EFAE84600DEAE70 /* BaseNavigation.swift */,
+				DA815D052EFAE87F00DEAE70 /* BaseNavigationView.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		DA815CFF2EFAE69600DEAE70 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				DA815D012EFAE6E200DEAE70 /* OnboardingCoordinator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		DA815D002EFAE6A100DEAE70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				91A41A712EDFE419008C48EA /* OnboardingIntro.swift */,
+				91A41A732EDFE4CC008C48EA /* OnboardingMain.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,12 +416,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				91983F062EDE9DA9008B2073 /* Buttons.swift in Sources */,
+				DA815D022EFAE6E200DEAE70 /* OnboardingCoordinator.swift in Sources */,
 				91983EEE2EDE81DE008B2073 /* AppFonts.swift in Sources */,
+				DA815D042EFAE84600DEAE70 /* BaseNavigation.swift in Sources */,
 				91983EF02EDE8281008B2073 /* AppColors.swift in Sources */,
 				91EA585E2EDD9787004F0C37 /* ContentView.swift in Sources */,
 				91983EFF2EDE89AD008B2073 /* Assets.swift in Sources */,
 				91A41A742EDFE4CC008C48EA /* OnboardingMain.swift in Sources */,
 				91983F002EDE89AD008B2073 /* Fonts.swift in Sources */,
+				DA815D062EFAE87F00DEAE70 /* BaseNavigationView.swift in Sources */,
 				91EA585F2EDD9787004F0C37 /* DeliveryAppApp.swift in Sources */,
 				91A41A722EDFE419008C48EA /* OnboardingIntro.swift in Sources */,
 			);
@@ -533,7 +569,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -564,7 +600,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
