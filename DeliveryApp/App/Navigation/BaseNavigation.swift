@@ -10,12 +10,12 @@ import SwiftUI
 protocol Route: Hashable, Identifiable {
     var id: String { get }
 }
-
 @MainActor
-protocol Coordinator: ObservableObject {
+protocol Coordinator: AnyObject, ObservableObject {
     associatedtype RouteType: Route
     
     var navigationStack: [RouteType] { get set }
+    var parent: AppCoordinator? { get set }
     
     func push(_ route: RouteType)
     func pop()

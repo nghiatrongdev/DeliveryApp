@@ -25,7 +25,7 @@
 		91A41A722EDFE419008C48EA /* OnboardingIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A41A712EDFE419008C48EA /* OnboardingIntro.swift */; };
 		91A41A742EDFE4CC008C48EA /* OnboardingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A41A732EDFE4CC008C48EA /* OnboardingMain.swift */; };
 		91EA585E2EDD9787004F0C37 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA585B2EDD9787004F0C37 /* ContentView.swift */; };
-		91EA585F2EDD9787004F0C37 /* DeliveryAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA585C2EDD9787004F0C37 /* DeliveryAppApp.swift */; };
+		91EA585F2EDD9787004F0C37 /* DeliveryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA585C2EDD9787004F0C37 /* DeliveryApp.swift */; };
 		91EA58602EDD9787004F0C37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EA585A2EDD9787004F0C37 /* Assets.xcassets */; };
 		91EA586E2EDD9A72004F0C37 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EA586D2EDD9A72004F0C37 /* Colors.xcassets */; };
 		A3D08068275FAE5851DC3EDE /* Pods_DeliveryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC2745BE03BDADB8656B71E /* Pods_DeliveryApp.framework */; };
@@ -58,7 +58,7 @@
 		91EA584C2EDD9653004F0C37 /* DeliveryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EA585A2EDD9787004F0C37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91EA585B2EDD9787004F0C37 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		91EA585C2EDD9787004F0C37 /* DeliveryAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAppApp.swift; sourceTree = "<group>"; };
+		91EA585C2EDD9787004F0C37 /* DeliveryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryApp.swift; sourceTree = "<group>"; };
 		91EA586D2EDD9A72004F0C37 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		DA815D012EFAE6E200DEAE70 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		DA815D032EFAE84600DEAE70 /* BaseNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigation.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 			children = (
 				DA815CFC2EFAE45C00DEAE70 /* Navigation */,
 				91EA585B2EDD9787004F0C37 /* ContentView.swift */,
-				91EA585C2EDD9787004F0C37 /* DeliveryAppApp.swift */,
+				91EA585C2EDD9787004F0C37 /* DeliveryApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -425,7 +425,7 @@
 				91A41A742EDFE4CC008C48EA /* OnboardingMain.swift in Sources */,
 				91983F002EDE89AD008B2073 /* Fonts.swift in Sources */,
 				DA815D062EFAE87F00DEAE70 /* BaseNavigationView.swift in Sources */,
-				91EA585F2EDD9787004F0C37 /* DeliveryAppApp.swift in Sources */,
+				91EA585F2EDD9787004F0C37 /* DeliveryApp.swift in Sources */,
 				91A41A722EDFE419008C48EA /* OnboardingIntro.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

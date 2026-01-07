@@ -1,27 +1,16 @@
-//
-//  BaseNavigationView.swift
-//  DeliveryApp
-//
-//  Created by Nguyen Trong Nghia on 23/12/25.
-//
-
-import Foundation
 import SwiftUI
-
-struct BaseNavigationView<Content: View, RouteType: Route>: View {
-    @ObservedObject var coordinator: AnyObject
+struct BaseNavigationView<Content: View, C: Coordinator>: View {
+    @ObservedObject var coordinator: C
     let rootView: Content
-    let navigationStack: [RouteType]
-    let destinationBuilder: (RouteType) -> AnyView
+    let destinationBuilder: (C.RouteType) -> AnyView
     
-    init<C: Coordinator>(
+    init(
         coordinator: C,
-        rootView: Content,
-        @ViewBuilder destinationBuilder: @escaping (RouteType) -> AnyView
-    ) where C.RouteType == RouteType {
-        self.coordinator = coordinator as AnyObject
-        self.rootView = rootView
-        self.navigationStack = coordinator.navigationStack
+        @ViewBuilder rootView: () -> Content,
+        @ViewBuilder destinationBuilder: @escaping (C.RouteType) -> AnyView
+    ) {
+        self.coordinator = coordinator
+        self.rootView = rootView()
         self.destinationBuilder = destinationBuilder
     }
     
@@ -29,26 +18,49 @@ struct BaseNavigationView<Content: View, RouteType: Route>: View {
         NavigationView {
             rootView
                 .background(
-                    navigationLinks
+                    NavigationStackBuilder(
+                        stack: coordinator.navigationStack,
+                        destinationBuilder: destinationBuilder
+                    )
                 )
         }
         .navigationViewStyle(.stack)
     }
+}
+
+private struct NavigationStackBuilder<RouteType: Route>: View {
+    let stack: [RouteType]
+    let destinationBuilder: (RouteType) -> AnyView
     
-    @ViewBuilder
-    private var navigationLinks: some View {
-        ForEach(navigationStack) { route in
+    var body: some View {
+        if let firstRoute = stack.first {
             NavigationLink(
-                destination: destinationBuilder(route),
-                tag: route,
-                selection: Binding(
-                    get: { navigationStack.last },
-                    set: { _ in }
-                )
+                destination: DestinationWrapper(
+                    route: firstRoute,
+                    remainingStack: Array(stack.dropFirst()),
+                    destinationBuilder: destinationBuilder
+                ),
+                isActive: .constant(true)
             ) {
                 EmptyView()
             }
             .hidden()
         }
+    }
+}
+
+private struct DestinationWrapper<RouteType: Route>: View {
+    let route: RouteType
+    let remainingStack: [RouteType]
+    let destinationBuilder: (RouteType) -> AnyView
+    
+    var body: some View {
+        destinationBuilder(route)
+            .background(
+                NavigationStackBuilder(
+                    stack: remainingStack,
+                    destinationBuilder: destinationBuilder
+                )
+            )
     }
 }
