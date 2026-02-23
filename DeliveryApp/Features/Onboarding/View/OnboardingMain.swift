@@ -9,6 +9,10 @@ import SwiftUI
 import SwiftUI
 
 struct OnboardingMain: View {
+    init(coordinator: OnboardingCoordinator) {
+        self.coordinator = coordinator
+    }
+    @ObservedObject var coordinator: OnboardingCoordinator
     @Environment(\.colorScheme) var colorScheme
     @State private var id: Int = 0
     
@@ -40,7 +44,7 @@ struct OnboardingMain: View {
                 OnboardingMainBottom(id: $id, models: models)
                     .frame(height: 280)
             } else {
-                OnboardingMainBottomCaseLast()
+                OnboardingMainBottomCaseLast(coordinator: coordinator)
                     .frame(height: 280)
             }
         }
@@ -56,6 +60,8 @@ struct OnboardingMain: View {
         default: return Asset.Assets.burger.swiftUIImage
         }
     }
+    
+    
 }
 
 // MARK: - Bottom Content
@@ -118,6 +124,7 @@ struct OnboardingMainBottom: View {
 }
 
 struct OnboardingMainBottomCaseLast: View {
+    @ObservedObject var coordinator: OnboardingCoordinator
     var body: some View {
         VStack(spacing:8) {
             Text("Join to get the delicious quizines!")
@@ -144,7 +151,7 @@ struct OnboardingMainBottomCaseLast: View {
                 .foregroundStyle(Color.Typography.light_grey.swiftUIColor)
             HStack(spacing:8) {
                 Button {
-                    
+                    loginWithGoogle()
                 } label: {
                     Asset.Assets.google.swiftUIImage
                         .resizable()
@@ -154,7 +161,7 @@ struct OnboardingMainBottomCaseLast: View {
                 .buttonStyle(CustomButtonStyle(type: .secondary, size: .medium))
                 
                 Button {
-                    
+                    loginWithFacebook()
                 } label: {
                     Asset.Assets.facebook.swiftUIImage
                         .resizable()
@@ -177,10 +184,34 @@ struct OnboardingMainBottomCaseLast: View {
             .frame(height: 52)
             
         }
+        
     }
+    private func getRootViewController() -> UIViewController? {
+          UIApplication.shared.connectedScenes
+              .compactMap { $0 as? UIWindowScene }
+              .flatMap { $0.windows }
+              .first { $0.isKeyWindow }?.rootViewController
+      }
+      
+      private func loginWithGoogle() {
+          guard let vc = getRootViewController() else { return }
+          AuthService.shared.loginWithGoogle(presenting: vc)
+      }
+      
+      private func loginWithFacebook() {
+          guard let vc = getRootViewController() else { return }
+          AuthService.shared.loginWithFacebook(presenting: vc) { result in
+              switch result {
+              case .success:
+                  coordinator.compleOnboarding()
+              case .failure(let error):
+                  print("Facebook login error: \(error)")
+              }
+          }
+      }
 }
-
-#Preview {
+//
+//#Preview {
+////    OnboardingMain()
 //    OnboardingMain()
-    OnboardingMain()
-}
+//}

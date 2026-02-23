@@ -5,23 +5,37 @@
 //  Created by Trọng Nghĩa Nguyễn on 1/12/25.
 //
 
+
 import SwiftUI
+import FirebaseCore
 
 @main
 struct DeliveryAppApp: App {
+    @StateObject private var coordinator = AppCoordinator()
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environmentObject(coordinator)
         }
     }
 }
 
 @MainActor
 class AppCoordinator: ObservableObject {
+    @Published var flow: AppFlow = .onboarding
     @Published var selectedTab: AppTab = .home
     
     // Feature coordinators
-    let onboardingCoordinator = OnboardingCoordinator()
+    lazy var onboardingCoordinator: OnboardingCoordinator = {
+           let c = OnboardingCoordinator()
+           c.parent = self
+           return c
+       }()
 //    let homeCoordinator = HomeCoordinator()
 //    let searchCoordinator = SearchCoordinator()
 //    let cartCoordinator = CartCoordinator()
@@ -85,7 +99,7 @@ enum AppTab: String, CaseIterable {
     case search
     case cart
     case profile
-    case onboarding
+    
     
     var title: String {
         rawValue.capitalized
@@ -97,7 +111,14 @@ enum AppTab: String, CaseIterable {
         case .search: return "magnifyingglass"
         case .cart: return "cart"
         case .profile: return "person"
-        case .onboarding:return "onboarding"
+
         }
     }
 }
+
+enum AppFlow {
+    case onboarding
+    case login
+    case main
+}
+

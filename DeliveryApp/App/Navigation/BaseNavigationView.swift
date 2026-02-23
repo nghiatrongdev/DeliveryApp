@@ -17,11 +17,13 @@ struct BaseNavigationView<Content: View, C: Coordinator>: View {
     var body: some View {
         NavigationView {
             rootView
+            
                 .background(
                     NavigationStackBuilder(
                         stack: coordinator.navigationStack,
                         destinationBuilder: destinationBuilder
                     )
+                    
                 )
         }
         .navigationViewStyle(.stack)
@@ -56,6 +58,7 @@ private struct DestinationWrapper<RouteType: Route>: View {
     
     var body: some View {
         destinationBuilder(route)
+            .navigationBarHidden(true)
             .background(
                 NavigationStackBuilder(
                     stack: remainingStack,
