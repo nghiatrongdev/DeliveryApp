@@ -16,9 +16,12 @@ struct OnboardingIntro: View {
             .scaledToFill()
             .ignoresSafeArea()
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    coordinator.push(.main)
-                }
+                print("OnboardingIntro appeared")
+                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                     print("Pushing main, path count before: \(coordinator.navigationPath.count)")
+                     coordinator.push(.main)
+                     print("Path count after: \(coordinator.navigationPath.count)")
+                 }
             }
     }
 }

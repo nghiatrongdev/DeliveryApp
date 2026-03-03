@@ -1,20 +1,16 @@
-//
-//  Navigation.swift
-//  DeliveryApp
-//
-//  Created by Nguyen Trong Nghia on 23/12/25.
-//
+// Navigation.swift
 
 import SwiftUI
 
-protocol Route: Hashable, Identifiable {
+protocol AppRoute: Hashable, Identifiable {
     var id: String { get }
 }
+
 @MainActor
 protocol Coordinator: AnyObject, ObservableObject {
-    associatedtype RouteType: Route
+    associatedtype RouteType: AppRoute
     
-    var navigationStack: [RouteType] { get set }
+    var navigationPath: [RouteType] { get set }
     var parent: AppCoordinator? { get set }
     
     func push(_ route: RouteType)
@@ -25,26 +21,19 @@ protocol Coordinator: AnyObject, ObservableObject {
 
 extension Coordinator {
     func push(_ route: RouteType) {
-        navigationStack.append(route)
+        navigationPath.append(route)
     }
     
     func pop() {
-        guard !navigationStack.isEmpty else { return }
-        navigationStack.removeLast()
+        guard !navigationPath.isEmpty else { return }
+        navigationPath.removeLast()
     }
     
     func popToRoot() {
-        navigationStack.removeAll()
+        navigationPath.removeAll()
     }
     
     func replace(with route: RouteType) {
-        navigationStack = [route]
-    }
-    
-    func popTo(_ route: RouteType) {
-        guard let index = navigationStack.firstIndex(where: { $0.id == route.id }) else {
-            return
-        }
-        navigationStack = Array(navigationStack.prefix(through: index))
+        navigationPath = [route]
     }
 }

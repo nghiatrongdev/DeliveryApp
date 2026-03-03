@@ -5,29 +5,27 @@
 
 import SwiftUI
 
-enum OnboardingRoute: Route {
+enum OnboardingRoute: AppRoute {
     case intro
     case main
     
     var id: String {
         switch self {
-        case .intro:
-            return "onboardingIntro"
-        case .main:
-            return "onboardingMain"
+        case .intro: return "onboardingIntro"
+        case .main:  return "onboardingMain"
         }
     }
 }
 
 @MainActor
-class OnboardingCoordinator: Coordinator {
-    @Published var navigationStack: [OnboardingRoute] = []
+final class OnboardingCoordinator: Coordinator {
+    @Published var navigationPath: [OnboardingRoute] = []
     
     typealias RouteType = OnboardingRoute
     
-    var parent: AppCoordinator?
+    weak var parent: AppCoordinator?
     
-    func compleOnboarding(){
+    func completeOnboarding() {
         parent?.flow = .login
     }
 }

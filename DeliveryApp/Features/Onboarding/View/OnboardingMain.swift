@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import SwiftUI
+import FBSDKLoginKit
+import FirebaseAuth
 
 struct OnboardingMain: View {
     init(coordinator: OnboardingCoordinator) {
@@ -15,6 +16,10 @@ struct OnboardingMain: View {
     @ObservedObject var coordinator: OnboardingCoordinator
     @Environment(\.colorScheme) var colorScheme
     @State private var id: Int = 0
+    @State private var showAlert = false
+    @State private var alertType: AlertType = .success
+    @State private var alertMessage = ""
+    @State private var isLoading = false
     
     // Các models
     private var models: [OnboardingMainBottom.ContentBottom] = [
@@ -34,7 +39,7 @@ struct OnboardingMain: View {
                 .resizable()
                 .frame(width: 70, height: 24)
                 .foregroundStyle(colorScheme == .dark ? Asset.Colors.white.swiftUIColor : Asset.Colors.black.swiftUIColor)
-                
+            
             // Image main
             getImageMain()
                 .resizable()
@@ -44,12 +49,19 @@ struct OnboardingMain: View {
                 OnboardingMainBottom(id: $id, models: models)
                     .frame(height: 280)
             } else {
-                OnboardingMainBottomCaseLast(coordinator: coordinator)
-                    .frame(height: 280)
+                OnboardingMainBottomCaseLast(
+                    coordinator: coordinator,
+                    showAlert: $showAlert,
+                    alertType: $alertType,
+                    alertMessage: $alertMessage,
+                    isLoading: $isLoading)
+                .frame(height: 280)
             }
         }
         .padding(.horizontal, 20)
         .animation(.easeInOut, value: id)
+        .topAlert(showAlert: $showAlert, type: $alertType, message: $alertMessage)
+        .loading(isLoading)
     }
     
     func getImageMain() -> Image {
@@ -125,22 +137,27 @@ struct OnboardingMainBottom: View {
 
 struct OnboardingMainBottomCaseLast: View {
     @ObservedObject var coordinator: OnboardingCoordinator
+    
+    @Binding var showAlert: Bool
+    @Binding var alertType: AlertType
+    @Binding var alertMessage: String
+    @Binding var isLoading: Bool
     var body: some View {
         VStack(spacing:8) {
             Text("Join to get the delicious quizines!")
                 .font(FontFamily.Poppins.bold.swiftUIFont(size: 32))
                 .multilineTextAlignment(.center)
                 .foregroundStyle(Color.Typography.heading.swiftUIColor)
-                
+            
             Button {
-                
+                // No action because of difficult login apple
             } label: {
                 HStack(spacing:8) {
                     Asset.Assets.apple.swiftUIImage
                         .renderingMode(.template)
                         .foregroundStyle(Color.Icon.white.swiftUIColor)
                         .frame(width: 24,height: 24)
-                        
+                    
                     Text("Continue with Apple")
                 }
             }
@@ -151,12 +168,12 @@ struct OnboardingMainBottomCaseLast: View {
                 .foregroundStyle(Color.Typography.light_grey.swiftUIColor)
             HStack(spacing:8) {
                 Button {
-                    loginWithGoogle()
+                    handleLoginGoogle()
                 } label: {
                     Asset.Assets.google.swiftUIImage
                         .resizable()
                         .frame(width: 24,height: 24)
-                        
+                    
                 }
                 .buttonStyle(CustomButtonStyle(type: .secondary, size: .medium))
                 
@@ -166,52 +183,120 @@ struct OnboardingMainBottomCaseLast: View {
                     Asset.Assets.facebook.swiftUIImage
                         .resizable()
                         .frame(width: 24,height: 24)
-                        
+                    
                 }
                 .buttonStyle(CustomButtonStyle(type: .secondary, size: .medium))
                 
                 Button {
-                    
+                    handleLoginMail()
                 } label: {
                     Asset.Assets.email.swiftUIImage
                         .resizable()
                         .frame(width: 24,height: 24)
-                        
+                    
                 }
                 .buttonStyle(CustomButtonStyle(type: .secondary, size: .medium))
-
+                
             }
             .frame(height: 52)
             
         }
-        
     }
-    private func getRootViewController() -> UIViewController? {
-          UIApplication.shared.connectedScenes
-              .compactMap { $0 as? UIWindowScene }
-              .flatMap { $0.windows }
-              .first { $0.isKeyWindow }?.rootViewController
-      }
-      
-      private func loginWithGoogle() {
-          guard let vc = getRootViewController() else { return }
-          AuthService.shared.loginWithGoogle(presenting: vc)
-      }
-      
-      private func loginWithFacebook() {
-          guard let vc = getRootViewController() else { return }
-          AuthService.shared.loginWithFacebook(presenting: vc) { result in
-              switch result {
-              case .success:
-                  coordinator.compleOnboarding()
-              case .failure(let error):
-                  print("Facebook login error: \(error)")
-              }
-          }
-      }
+    
+    
+    func handleLoginGoogle() {
+        isLoading = true
+        
+        AuthService.shared.loginWithGoogle { result in
+            DispatchQueue.main.async {
+                isLoading = false
+                
+                switch result {
+                case .success:
+                    showTopAlert(type: .success, message: "Login Success")
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        coordinator.completeOnboarding()
+                    }
+                    
+                case .failure(let error):
+                    showTopAlert(type: .error, message: error.localizedDescription)
+                }
+            }
+        }
+    }
+    private func loginWithFacebook() {
+        
+        guard let rootVC = UIApplication.shared.rootViewController else { return }
+        
+        isLoading = true
+        
+        let loginManager = LoginManager()
+        
+        loginManager.logIn(
+            permissions: ["public_profile", "email"],
+            from: rootVC
+        ) { result, error in
+            
+            if let error = error {
+                DispatchQueue.main.async {
+                    isLoading = false
+                    showTopAlert(type: .error, message: error.localizedDescription)
+                }
+                return
+            }
+            
+            guard let result = result, !result.isCancelled else {
+                DispatchQueue.main.async {
+                    isLoading = false
+                }
+                return
+            }
+            
+            guard let accessToken = AccessToken.current?.tokenString else {
+                DispatchQueue.main.async {
+                    isLoading = false
+                    showTopAlert(type: .error, message: "Cannot get Facebook token")
+                }
+                return
+            }
+            
+            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken)
+            
+            Auth.auth().signIn(with: credential) { authResult, error in
+                
+                DispatchQueue.main.async {
+                    isLoading = false
+                    
+                    if let error = error {
+                        showTopAlert(type: .error, message: error.localizedDescription)
+                        return
+                    }
+                    
+                    showTopAlert(type: .success, message: "Login Success")
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        coordinator.completeOnboarding()
+                    }
+                }
+            }
+        }
+    }
+    private func showTopAlert(type: AlertType, message: String) {
+        alertType = type
+        alertMessage = message
+        
+        withAnimation {
+            showAlert = true
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            withAnimation {
+                showAlert = false
+            }
+        }
+    }
+    private func handleLoginMail(){
+        coordinator.completeOnboarding()
+    }
 }
-//
-//#Preview {
-////    OnboardingMain()
-//    OnboardingMain()
-//}

@@ -1,4 +1,7 @@
+// BaseNavigationView.swift
+
 import SwiftUI
+
 struct BaseNavigationView<Content: View, C: Coordinator>: View {
     @ObservedObject var coordinator: C
     let rootView: Content
@@ -15,55 +18,12 @@ struct BaseNavigationView<Content: View, C: Coordinator>: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $coordinator.navigationPath) {
             rootView
-            
-                .background(
-                    NavigationStackBuilder(
-                        stack: coordinator.navigationStack,
-                        destinationBuilder: destinationBuilder
-                    )
-                    
-                )
+                .navigationDestination(for: C.RouteType.self) { route in
+                    destinationBuilder(route)
+                        .navigationBarHidden(true)
+                }
         }
-        .navigationViewStyle(.stack)
-    }
-}
-
-private struct NavigationStackBuilder<RouteType: Route>: View {
-    let stack: [RouteType]
-    let destinationBuilder: (RouteType) -> AnyView
-    
-    var body: some View {
-        if let firstRoute = stack.first {
-            NavigationLink(
-                destination: DestinationWrapper(
-                    route: firstRoute,
-                    remainingStack: Array(stack.dropFirst()),
-                    destinationBuilder: destinationBuilder
-                ),
-                isActive: .constant(true)
-            ) {
-                EmptyView()
-            }
-            .hidden()
-        }
-    }
-}
-
-private struct DestinationWrapper<RouteType: Route>: View {
-    let route: RouteType
-    let remainingStack: [RouteType]
-    let destinationBuilder: (RouteType) -> AnyView
-    
-    var body: some View {
-        destinationBuilder(route)
-            .navigationBarHidden(true)
-            .background(
-                NavigationStackBuilder(
-                    stack: remainingStack,
-                    destinationBuilder: destinationBuilder
-                )
-            )
     }
 }

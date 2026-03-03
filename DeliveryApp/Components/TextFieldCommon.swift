@@ -51,6 +51,7 @@ struct TextFieldCommon: View {
             
             TextField(placeholder, text: $text)
                 .padding()
+                .autocapitalization(.none)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
                         .fill(state.backgroundColor)
@@ -94,9 +95,11 @@ struct SecureTextFieldCommon: View {
                 Group {
                     if isSecure {
                         SecureField(placeholder, text: $text)
+                            .autocapitalization(.none)
                             .font(FontFamily.Poppins.regular.swiftUIFont(size: 15))
                     } else {
                         TextField(placeholder, text: $text)
+                            .autocapitalization(.none)
                             .font(FontFamily.Poppins.regular.swiftUIFont(size: 15))
                     }
                 }

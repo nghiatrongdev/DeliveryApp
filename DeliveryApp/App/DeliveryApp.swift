@@ -2,96 +2,92 @@
 //  DeliveryAppApp.swift
 //  DeliveryApp
 //
-//  Created by Trọng Nghĩa Nguyễn on 1/12/25.
-//
-
 
 import SwiftUI
 import FirebaseCore
+import GoogleSignIn
+import UIKit
+import FBSDKCoreKit
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
+    ) -> Bool {
+        
+        ApplicationDelegate.shared.application(
+            application,
+            didFinishLaunchingWithOptions: launchOptions
+        )
+        
+        return true
+    }
+    
+    func application(
+        _ app: UIApplication,
+        open url: URL,
+        options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+    ) -> Bool {
+        
+        return ApplicationDelegate.shared.application(
+            app,
+            open: url,
+            options: options
+        )
+    }
+}
+
 
 @main
 struct DeliveryAppApp: App {
-    @StateObject private var coordinator = AppCoordinator()
+
+    @UIApplicationDelegateAdaptor(AppDelegate.self)
+    var appDelegate
     
+    @StateObject private var coordinator = AppCoordinator()
+
     init() {
         FirebaseApp.configure()
     }
-    
+
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environmentObject(coordinator)
+                .onOpenURL { url in
+                    GIDSignIn.sharedInstance.handle(url)
+                }
         }
     }
 }
-
 @MainActor
 class AppCoordinator: ObservableObject {
     @Published var flow: AppFlow = .onboarding
     @Published var selectedTab: AppTab = .home
     
-    // Feature coordinators
     lazy var onboardingCoordinator: OnboardingCoordinator = {
-           let c = OnboardingCoordinator()
-           c.parent = self
-           return c
-       }()
-//    let homeCoordinator = HomeCoordinator()
-//    let searchCoordinator = SearchCoordinator()
-//    let cartCoordinator = CartCoordinator()
-//    let profileCoordinator = ProfileCoordinator()
+        let c = OnboardingCoordinator()
+        c.parent = self
+        return c
+    }()
     
-    init() {
-        // Inject parent reference cho cross-feature navigation
-//        homeCoordinator.parent = self
-//        searchCoordinator.parent = self
-//        cartCoordinator.parent = self
-//        profileCoordinator.parent = self
-        onboardingCoordinator.parent = self
-    }
+    lazy var loginCoordinator: LoginCoordinator = {
+        let c = LoginCoordinator()
+        c.parent = self
+        return c
+    }()
     
-    // MARK: - Cross-feature Navigation
-    
-    /// Navigate to specific tab and optionally push route
-    func navigateTo(tab: AppTab, route: (any Route)? = nil) {
+    func navigateTo(tab: AppTab, route: (any AppRoute)? = nil) {  // ← Route -> AppRoute
         selectedTab = tab
-//        
-//        // Push route if provided
-//        if let route = route {
-//            switch tab {
-//            case .home:
-//                if let homeRoute = route as? HomeRoute {
-//                    homeCoordinator.push(homeRoute)
-//                }
-//            case .search:
-//                if let searchRoute = route as? SearchRoute {
-//                    searchCoordinator.push(searchRoute)
-//                }
-//            case .cart:
-//                if let cartRoute = route as? CartRoute {
-//                    cartCoordinator.push(cartRoute)
-//                }
-//            case .profile:
-//                if let profileRoute = route as? ProfileRoute {
-//                    profileCoordinator.push(profileRoute)
-//                }
-//            }
-//        }
     }
     
-    /// Deep link handler
     func handleDeepLink(_ url: URL) {
-        // Parse URL và navigate
-        // Example: myapp://product/123
         let components = url.pathComponents
-        
         if components.contains("product"), let id = components.last {
-//            navigateTo(tab: .search, route: SearchRoute.productDetail(id: id))
+            // navigateTo(...)
         }
     }
-    
-    /// Reset specific tab to root
- 
 }
 
 enum AppTab: String, CaseIterable {
@@ -100,18 +96,16 @@ enum AppTab: String, CaseIterable {
     case cart
     case profile
     
-    
     var title: String {
         rawValue.capitalized
     }
     
     var icon: String {
         switch self {
-        case .home: return "house"
-        case .search: return "magnifyingglass"
-        case .cart: return "cart"
+        case .home:    return "house"
+        case .search:  return "magnifyingglass"
+        case .cart:    return "cart"
         case .profile: return "person"
-
         }
     }
 }
@@ -121,4 +115,3 @@ enum AppFlow {
     case login
     case main
 }
-

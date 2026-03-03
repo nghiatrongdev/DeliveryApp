@@ -2,31 +2,36 @@
 //  LoginCoordinator.swift
 //  DeliveryApp
 //
-//  Created by Nguyen Trong Nghia on 20/2/26.
-//
 
 import Foundation
 import SwiftUI
 
-enum LoginRoute: Route {
+enum LoginRoute: AppRoute {
     case login
-    var id: String{
+    case register
+    case forgot
+    
+    var id: String {
         switch self {
-        case .login:
-            return "login"
+        case .login: return "login"
+        case .register: return "register"
+        case .forgot: return "forgot"
+            
         }
     }
-    
-   
 }
 
 @MainActor
-class LoginCoordinator: Coordinator {
-    @Published var navigationStack: [LoginRoute] = []
+final class LoginCoordinator: Coordinator {
+    @Published var navigationPath: [LoginRoute] = []
     
     typealias RouteType = LoginRoute
     
-    var parent: AppCoordinator?
+    weak var parent: AppCoordinator?
+    
+    func completeLogin() {
+        parent?.flow = .main
+    }
 }
 
 struct LoginNavigationView: View {
@@ -34,16 +39,19 @@ struct LoginNavigationView: View {
     
     var body: some View {
         BaseNavigationView(coordinator: coordinator) {
-            LoginNavigationView(coordinator: coordinator)
-        } destinationBuilder: { route in
+            LoginView(coordinator: coordinator)
+        } destinationBuilder: { route -> AnyView in
             AnyView(
                 Group {
                     switch route {
                     case .login:
-                        LoginNavigationView(coordinator: coordinator)
+                        LoginView(coordinator: coordinator)
+                    case .register:
+                        RegisterView(coordinator: coordinator)
+                    case .forgot:
+                        ForgotPasswordView(coordinator: coordinator)
                     }
-                }
-            )
+                })
         }
     }
 }
