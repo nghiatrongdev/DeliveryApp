@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		65CB9590DA1C536DCD6891A3 /* Pods_DeliveryApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA447750D9F3CBF1D99188F /* Pods_DeliveryApp.framework */; };
+		910CEEF42F57EFA9001BB183 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910CEEF32F57EFA9001BB183 /* Model.swift */; };
 		91983ED82EDE7EEB008B2073 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91983ED52EDE7EEB008B2073 /* Poppins-Medium.ttf */; };
 		91983ED92EDE7EEB008B2073 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91983ED42EDE7EEB008B2073 /* Poppins-Bold.ttf */; };
 		91983EDA2EDE7EEB008B2073 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91983ED72EDE7EEB008B2073 /* Poppins-SemiBold.ttf */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		3EFA5C2D17E7CB59EA2D7692 /* Pods-DeliveryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryApp.release.xcconfig"; path = "Target Support Files/Pods-DeliveryApp/Pods-DeliveryApp.release.xcconfig"; sourceTree = "<group>"; };
+		910CEEF32F57EFA9001BB183 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		91983ED42EDE7EEB008B2073 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		91983ED52EDE7EEB008B2073 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		91983ED62EDE7EEB008B2073 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 		91EA586B2EDD986D004F0C37 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				910CEEF32F57EFA9001BB183 /* Model.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -578,9 +581,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DeliveryApp/Pods-DeliveryApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DeliveryApp/Pods-DeliveryApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -635,9 +642,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DeliveryApp/Pods-DeliveryApp-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DeliveryApp/Pods-DeliveryApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -681,6 +692,7 @@
 				91BA3DAD2F5690BA0026F275 /* HomeView.swift in Sources */,
 				91BA3DC72F56BFD30026F275 /* LoadingViewModifier.swift in Sources */,
 				91A41A722EDFE419008C48EA /* OnboardingIntro.swift in Sources */,
+				910CEEF42F57EFA9001BB183 /* Model.swift in Sources */,
 				91BA3DC52F56BED30026F275 /* LoadingView.swift in Sources */,
 				91BA3DC22F5694870026F275 /* NotificationView.swift in Sources */,
 			);

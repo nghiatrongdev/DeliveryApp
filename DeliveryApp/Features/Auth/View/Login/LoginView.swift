@@ -150,6 +150,7 @@ struct LoginView: View {
         isLoading = true
         
         AuthService.shared.login(email: emailStr, password: passwordStr) { result in
+            isLoading = false
             switch result {
             case .success:
                 showTopAlert(type: .success, message: "Login Success")
@@ -174,7 +175,4 @@ struct LoginView: View {
                }
            }
        }
-    
-    
-    
 }
