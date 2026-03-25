@@ -29,9 +29,52 @@ struct Food {
     let isAvailable: Bool
 }
 
+struct Banner {
+    let id: String
+    let title: String
+    let subtitle: String
+    let imageName: String
+    let gradientColors: [String]
+}
+
 // MARK: - Mock Data
 
 enum MockData {
+
+    static let categories: [String] = [
+        "Tất cả", "Chicken", "Pizza", "Sushi", "BBQ", "Burger", "Pasta", "Drinks", "Desserts"
+    ]
+
+    static let banners: [Banner] = [
+        Banner(
+            id: "bn1",
+            title: "Giảm 50%",
+            subtitle: "Đơn hàng đầu tiên của bạn",
+            imageName: "Delivery guy",
+            gradientColors: ["FF6B35", "F7C59F"]
+        ),
+        Banner(
+            id: "bn2",
+            title: "Miễn phí ship",
+            subtitle: "Đơn từ 100.000đ trở lên",
+            imageName: "Burger",
+            gradientColors: ["2DC653", "A8E6CF"]
+        ),
+        Banner(
+            id: "bn3",
+            title: "Món mới",
+            subtitle: "Khám phá thực đơn hôm nay",
+            imageName: "Chef cooking",
+            gradientColors: ["5B5EA6", "B8B5FF"]
+        ),
+        Banner(
+            id: "bn4",
+            title: "Combo tiết kiệm",
+            subtitle: "Chỉ từ 99.000đ / combo",
+            imageName: "Birthday girl",
+            gradientColors: ["E84393", "FFB3D9"]
+        )
+    ]
 
     static let restaurants: [Restaurant] = [
 

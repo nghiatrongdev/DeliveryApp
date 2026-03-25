@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftUICore
+import SwiftUI
 
 struct LoadingModifier: ViewModifier {
     let isLoading: Bool

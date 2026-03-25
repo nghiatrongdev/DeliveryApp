@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftUICore
+import SwiftUI
 struct TopAlertModifier: ViewModifier {
     @Binding var showAlert: Bool
     @Binding var alertType: AlertType
